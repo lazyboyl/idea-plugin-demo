@@ -104,15 +104,42 @@ public class GenerateCodeAutomatically {
      * @return 返回表单的的panel
      */
     public JPanel initCenter() {
-        GridLayout gridLayout = new GridLayout(1, 2);
-        //一个简单的14行2列的表格布局
-        center.setLayout(gridLayout);
+        center.setLayout(new GridLayout(5,2));
+
+        JPanel row = new JPanel();
+        row.setLayout(new FlowLayout(FlowLayout.LEFT));
+        jdbcUrl.setPreferredSize(new Dimension(80,30));
+        row.add(jdbcUrl);
+        jdbcUrlContent.setPreferredSize(new Dimension(420,30));
+        row.add(jdbcUrlContent);
+        center.add(row);
 
 
-        jdbcUrl.setPreferredSize(new Dimension(50, 30));
-        center.add(jdbcUrl);
-        jdbcUrlContent.setPreferredSize(new Dimension(300, 30));
-        center.add(jdbcUrlContent);
+        JPanel two = new JPanel();
+        two.setLayout(new FlowLayout(FlowLayout.LEFT));
+        driverClassName.setPreferredSize(new Dimension(80,30));
+        two.add(driverClassName);
+        driverClassNameContent.setPreferredSize(new Dimension(420,30));
+        two.add(driverClassNameContent);
+        center.add(two);
+
+        JPanel three = new JPanel();
+        three.setLayout(new GridLayout(1,2));
+        JPanel threeOne = new JPanel();
+        threeOne.setLayout(new FlowLayout(FlowLayout.LEFT));
+        userName.setPreferredSize(new Dimension(80,30));
+        threeOne.add(userName);
+        userNameContent.setPreferredSize(new Dimension(175,30));
+        threeOne.add(userNameContent);
+        three.add(threeOne);
+        JPanel threeTwo = new JPanel();
+        threeTwo.setLayout(new FlowLayout(FlowLayout.LEFT));
+        password.setPreferredSize(new Dimension(50,30));
+        threeTwo.add(password);
+        passwordContent.setPreferredSize(new Dimension(180,30));
+        threeTwo.add(passwordContent);
+        three.add(threeTwo);
+        center.add(three);
 
         return center;
     }
